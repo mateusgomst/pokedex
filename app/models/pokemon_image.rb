@@ -1,0 +1,2 @@
+class PokemonImage < ApplicationRecord
+end

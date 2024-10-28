@@ -1,0 +1,11 @@
+<h1>Pokédex</h1>
+<%= form_with url: search_path, method: :get, local: true do |form| %>
+  <%= form.text_field :name, placeholder: "Digite o nome do Pokémon" %>
+  <%= form.submit "Buscar" %>
+<% end %>
+
+<ul>
+  <% @pokemons.each do |pokemon| %>
+    <li><%= link_to pokemon.name.capitalize, pokemon_path(pokemon) %></li>
+  <% end %>
+</ul>

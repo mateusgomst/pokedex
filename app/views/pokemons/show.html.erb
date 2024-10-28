@@ -1,0 +1,10 @@
+<h1><%= @pokemon.name.capitalize %></h1>
+<p><strong>Tipo:</strong> <%= @pokemon.pokemon_type %></p>
+<p><strong>Altura:</strong> <%= @pokemon.height %> dm</p>
+<p><strong>Peso:</strong> <%= @pokemon.weight %> hg</p>
+<p><strong>Habilidades:</strong> <%= @pokemon.abilities %></p>
+ <p><% if @pokemon.image_url.present? %>
+    <img src="<%= @pokemon.image_url %>" alt="<%= @pokemon.name %> image" class="pokemon-image">
+  <% else %>
+    <p>No image available</p>
+  <% end %></p>
