@@ -25,6 +25,7 @@ class PokemonsController < ApplicationController
     
         @pokemon = Pokemon.create(
           name: data['name'],
+          hp: data['stats'].find { |stat| stat['stat']['name'] == 'hp' }['base_stat'],
           pokemon_type: data['types'][0]['type']['name'],
           height: data['height'],
           weight: data['weight'],
@@ -34,6 +35,7 @@ class PokemonsController < ApplicationController
           base_damage: attack_data['power'], 
           attack_type: attack_data['type']['name'], 
           effect: attack_data['effect_entries'][0]['effect'],
+          
         )
       else
         flash[:alert] = "Detalhes do ataque não encontrados!"

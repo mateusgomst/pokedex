@@ -1,34 +1,25 @@
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none; /* Remove o sublinhado do link */
-    text-align: center;
-    transition: background-color 0.3s;
+.btn-delete {
+    background-color: #ff4d4d; /* Cor vermelha para o botão de apagar */
+    color: white;
+    padding: 6px 12px;
+    font-size: 0.9em;
+    border-radius: 4px;
+    margin-right: 10px; /* Espaçamento entre os botões */
   }
   
-  .btn-delete {
-    background-color: #dc3545; /* Vermelho */
-    padding: 5px 10px; /* Menor */
-    font-size: 14px; /* Menor */
+  .btn-secondary {
+    background-color: #add8e6; /* Cor azul claro para o botão de retorno */
+    color: white;
+    padding: 6px 12px;
+    font-size: 0.9em;
+    border-radius: 4px;
+    text-decoration: none; /* Remove o sublinhado */
   }
   
-  .btn-delete:hover {
-    background-color: #c82333; /* Vermelho ao passar o mouse */
-  }
-  
-  .btn-return {
-    background-color: #007bff; /* Azul claro */
-    padding: 3px 8px; /* Menor */
-    font-size: 12px; /* Menor */
-    margin: 0 10px; /* Espaçamento lateral */
-  }
-  
-  .btn-return:hover {
-    background-color: #0056b3; /* Azul claro ao passar o mouse */
+  .pokemon-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
   }
   
