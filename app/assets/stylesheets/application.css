@@ -1,15 +1,34 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none; /* Remove o sublinhado do link */
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-delete {
+    background-color: #dc3545; /* Vermelho */
+    padding: 5px 10px; /* Menor */
+    font-size: 14px; /* Menor */
+  }
+  
+  .btn-delete:hover {
+    background-color: #c82333; /* Vermelho ao passar o mouse */
+  }
+  
+  .btn-return {
+    background-color: #007bff; /* Azul claro */
+    padding: 3px 8px; /* Menor */
+    font-size: 12px; /* Menor */
+    margin: 0 10px; /* Espaçamento lateral */
+  }
+  
+  .btn-return:hover {
+    background-color: #0056b3; /* Azul claro ao passar o mouse */
+  }
+  

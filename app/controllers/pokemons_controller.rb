@@ -10,30 +10,43 @@ class PokemonsController < ApplicationController
   end
 
   def search
-    # Faz requisição para a API caso o Pokémon não esteja no banco de dados
     service = PokemonService.new
     response = service.fetch_pokemon(params[:name].downcase)
-
+  
     if response.success?
-      # Parseia e salva os dados no banco
       data = response.parsed_response
-      @pokemon = Pokemon.create(
-        name: data['name'],
-        pokemon_type: data['types'][0]['type']['name'],
-        height: data['height'],
-        weight: data['weight'],
-        abilities: data['abilities'].map { |a| a['ability']['name'] }.join(", "),
-        image_url: data['sprites']['front_default']
-      )
+    
+      # Coletar o primeiro ataque
+      move_name = data['moves'][0]['move']['name'] if data['moves'].any?
+      attack_response = service.fetch_move_details(move_name) if move_name
+    
+      if attack_response[:success]
+        attack_data = attack_response[:parsed_response]
+    
+        @pokemon = Pokemon.create(
+          name: data['name'],
+          pokemon_type: data['types'][0]['type']['name'],
+          height: data['height'],
+          weight: data['weight'],
+          abilities: data['abilities'].map { |a| a['ability']['name'] }.join(", "),
+          image_url: data['sprites']['front_default'],
+          name_attack: attack_data['name'],
+          base_damage: attack_data['power'], 
+          attack_type: attack_data['type']['name'], 
+          effect: attack_data['effect_entries'][0]['effect'],
+        )
+      else
+        flash[:alert] = "Detalhes do ataque não encontrados!"
+      end
     else
       flash[:alert] = "Pokémon não encontrado!"
     end
-  end
+    
+  end  
 
   def destroy
     @pokemon = Pokemon.find(params[:id])
     @pokemon.destroy
     redirect_to root_path
   end
-
 end
