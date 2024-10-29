@@ -19,5 +19,20 @@
 
   <body>
     <%= yield %>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const buttons = document.querySelectorAll("form[data-confirm]");
+
+        buttons.forEach(button => {
+          button.addEventListener("submit", function(event) {
+            const message = button.getAttribute("data-confirm");
+            if (!confirm(message)) {
+              event.preventDefault();
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>

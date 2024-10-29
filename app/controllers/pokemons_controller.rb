@@ -29,4 +29,11 @@ class PokemonsController < ApplicationController
       flash[:alert] = "Pokémon não encontrado!"
     end
   end
+
+  def destroy
+    @pokemon = Pokemon.find(params[:id])
+    @pokemon.destroy
+    redirect_to root_path
+  end
+
 end

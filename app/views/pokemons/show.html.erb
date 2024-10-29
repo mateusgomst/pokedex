@@ -3,8 +3,14 @@
 <p><strong>Altura:</strong> <%= @pokemon.height %> dm</p>
 <p><strong>Peso:</strong> <%= @pokemon.weight %> hg</p>
 <p><strong>Habilidades:</strong> <%= @pokemon.abilities %></p>
- <p><% if @pokemon.image_url.present? %>
-    <img src="<%= @pokemon.image_url %>" alt="<%= @pokemon.name %> image" class="pokemon-image">
-  <% else %>
-    <p>No image available</p>
-  <% end %></p>
+
+<% if @pokemon.image_url.present? %>
+  <p><img src="<%= @pokemon.image_url %>" alt="<%= @pokemon.name %> image" class="pokemon-image"></p>
+<% else %>
+  <p>No image available</p>
+<% end %>
+
+<p>
+  <%= button_to 'Erase Pokémon', pokemon_path(@pokemon), method: :delete, class: 'btn-delete', data: { confirm: 'Are you sure you want to delete this Pokémon?' } %>
+  <%= link_to 'Return', root_path, class: "btn btn-secondary", role: "button" %>
+</p>
